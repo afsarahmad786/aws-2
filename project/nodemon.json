@@ -1,0 +1,12 @@
+{
+  "env": {
+    "Sequelize_User": "root",
+    "Sequelize_Password": "root",
+    "Port": 3000,
+    "API_KEY": "rzp_test_U7wkfKc0defrB0",
+    "API_SECRET": "kvB1AhG2yKMjkG2u2XiydDjS",
+    "JWT_SECT": "987546585454566985abavchafjagjaaj",
+    "SGRID_API": "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",
+    "DB_HOST": "localhost"
+  }
+}
