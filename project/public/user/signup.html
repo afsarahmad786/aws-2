@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -22,58 +22,53 @@
   <body>
     <section
       class="vh-100 bg-image"
-      style="
-        background-image: url('../img/img4.png');
-      "
+    
     >
     <div class="container mt-3">
-      <h2>Forgot form</h2>
-      <form action="">
-   
+      <h2>Register form</h2>
+      <form action="" >
         <div class="mb-3 mt-3">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter name"
+            name="name"
+            required
+          />
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="mb-3">
           <label for="password">Password:</label>
-          <span class="password-error"></span>
           <input
             type="password"
             class="form-control"
-            id="pass"
+            id="password"
             placeholder="Enter password"
             name="password"
             required
           />
         </div>
-               <button type="button" class="btn btn-primary" id="resetb">Submit</button>
 
+        <button type="button" class="btn btn-primary" id="regsi">Register</button>
       </form>
       <br />
-    
-    </section>
+      <p>Already Registered <a href="login.html" class="btn-sm btn-primary">Login </a></p>    </section>
     </div>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-     <script>
-      const res = document.getElementById("resetb");
-res.addEventListener("click", function () {
-const password=document.getElementById("pass").value
-const url=window.location.href.split("/")
 
-  axios
-    .post("http://127.0.0.1:3000/password/reset/"+url[url.length - 1], {
-      password: password,
-    })
-    .then((response) => {
-// console.log(response);
-alert(response.data.message)
-location.reload()
-
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-     </script>
+    <script src="./register.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -84,6 +79,5 @@ location.reload()
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
   </body>
 </html>

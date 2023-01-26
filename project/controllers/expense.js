@@ -43,8 +43,12 @@ exports.list = async (req, res, next) => {
   let q = req.query;
   let p = q.page.split("?")[0];
   let l = q.page.split("=")[1];
-  console.log("ppppppppppppppp", p, l);
+  // console.log("ppppppppppppppp", p, l);
   // const { page, size, title } = req.query;
+  console.log("limit .....................", l);
+  if (!l) {
+    l = 10;
+  }
   const page = p;
   const size = l;
   const { limit, offset } = getPagination(page, size);

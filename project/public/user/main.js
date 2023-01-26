@@ -5,7 +5,7 @@ document.getElementById("expens").addEventListener("click", function () {
   const token = localStorage.getItem("token");
   axios
     .post(
-      "http://127.0.0.1:3000/expense",
+      "http://52.193.197.158:3000/expense",
 
       {
         amount: amount,
@@ -49,9 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   axios
-    .get("http://127.0.0.1:3000/expense?page=" + page + "?limit=" + limit, {
-      headers: { Authorization: token },
-    })
+    .get(
+      "http://52.193.197.158:3000/expense?page=" + page + "?limit=" + limit,
+      {
+        headers: { Authorization: token },
+      }
+    )
     .then((res) => showOutput(res.data))
     .catch((err) => console.error(err));
 });
@@ -59,6 +62,7 @@ function pagen(i) {
   return i + 1;
 }
 function showOutput(res) {
+  console.log(res);
   const totalItem = res.data.totalItems;
   const totalPage = res.data.totalPages;
   const currentPage = res.data.currentPage;
@@ -100,7 +104,7 @@ function domcontent(page = 0) {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://127.0.0.1:3000/expense?page=" + page, {
+      .get("http://52.193.197.158:3000/expense?page=" + page, {
         headers: { Authorization: token },
       })
       .then((res) => showOutput(res.data))
@@ -120,7 +124,7 @@ function paginatepage(page) {
   // location.reload();
 
   // axios
-  //   .get("http://127.0.0.1:3000/expense?page=" + page, {
+  //   .get("http://52.193.197.158:3000/expense?page=" + page, {
   //     headers: { Authorization: token },
   //   })
   //   .then((res) =>
@@ -198,7 +202,7 @@ function del(item) {
   const id = item.id.slice(-1);
   console.log(id);
   axios
-    .delete("http://127.0.0.1:3000/expense/" + id, {
+    .delete("http://52.193.197.158:3000/expense/" + id, {
       headers: { Authorization: token },
     })
     .then((res) => {
@@ -211,7 +215,7 @@ function del(item) {
 
 document.getElementById("pay-button").onclick = async function (e) {
   const token = localStorage.getItem("token");
-  const response = await axios.get("http://127.0.0.1:3000/buypremium", {
+  const response = await axios.get("http://52.193.197.158:3000/buypremium", {
     headers: { Authorization: token },
   });
   var options = {
@@ -219,7 +223,7 @@ document.getElementById("pay-button").onclick = async function (e) {
     order_id: response.data.order.id,
     handler: async function (response) {
       await axios.post(
-        "http://127.0.0.1:3000/updateordertransaction",
+        "http://52.193.197.158:3000/updateordertransaction",
         { orderId: options.order_id, paymentId: response.razoray_payment_id },
         {
           headers: { Authorization: token },
@@ -246,7 +250,7 @@ document.getElementById("leaderboard").onclick = async function (e) {
   const token = localStorage.getItem("token");
 
   axios
-    .get("http://127.0.0.1:3000/leaderboard", {
+    .get("http://52.193.197.158:3000/leaderboard", {
       headers: { Authorization: token },
     })
     .then(
@@ -277,7 +281,7 @@ document
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://127.0.0.1:3000/downloadreport", {
+      .get("http://52.193.197.158:3000/downloadreport", {
         headers: { Authorization: token },
       })
       .then((res) => {
@@ -297,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   axios
     .get(
-      "http://127.0.0.1:3000/seereport",
+      "http://52.193.197.158:3000/seereport",
 
       { headers: { Authorization: token } }
     )
@@ -331,7 +335,7 @@ function addreport(item) {
 //   // let limit = window.location.href.split("?")[2];
 
 //   axios
-//     .get("http://127.0.0.1:3000/expense?" + page, {
+//     .get("http://52.193.197.158:3000/expense?" + page, {
 //       headers: { Authorization: token },
 //     })
 //     .then((res) => console.log(res))
@@ -343,7 +347,7 @@ function addreport(item) {
 //   // let limit = window.location.href.split("?")[2];
 
 //   axios
-//     .get("http://127.0.0.1:3000/expense?" + page + "=1", {
+//     .get("http://52.193.197.158:3000/expense?" + page + "=1", {
 //       headers: { Authorization: token },
 //     })
 //     .then((res) => console.log(res))

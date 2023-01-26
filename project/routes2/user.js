@@ -6,7 +6,7 @@ const usercontroller = require("../controllers/user");
 
 const router = express.Router();
 
-router.post("/register", usercontroller.register);
+router.post("/user/register", usercontroller.register);
 router.post("/login", usercontroller.login);
 router.post("/password/forgotpassword", usercontroller.restorepass);
 router.get("/password/forgotpassword/:uuid", usercontroller.resetpass);
