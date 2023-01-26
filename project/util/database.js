@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const sequelize = new Sequelize(
-  "expense",
+  process.env.DB_NAME,
   process.env.Sequelize_User,
   process.env.Sequelize_Password,
   {

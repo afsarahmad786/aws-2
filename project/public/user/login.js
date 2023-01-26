@@ -1,26 +1,26 @@
-const mesage = document.getElementById("msg");
+const btn = document.getElementById("lgn");
 const msg = document.getElementsByClassName("user-not-found");
 
-const reg = document.getElementById("regsi");
-
-reg.addEventListener("click", function () {
+// const name = document.getElementById("name").value;
+btn.addEventListener("click", function () {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  const name = document.getElementById("name").value;
+  const mess = document.getElementById("msg");
+
   axios
-    .post("http://127.0.0.1:3000/register", {
+    .post("http://52.193.197.158:3000/login", {
       email: email,
       password: password,
-      name: name,
     })
     .then((response) => {
-      console.log(response);
       const messages = response.data["message"];
       const suc = response.data["success"];
       if (suc == true) {
-        alert(messages);
+        alert(messages + " " + response.data["status"]);
+        localStorage.setItem("token", response.data.token);
+        location.href = "expense.html";
       } else {
-        alert(messages);
+        alert(messages + " " + response.data["status"]);
       }
       // mesage.innerHTML = "Success";
       // console.log(response.data);

@@ -1,6 +1,9 @@
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
+
+dotenv.config();
 const sequelize = require("./util/database");
 const User = require("./models/user");
 const userRoutes = require("./routes2/user");
@@ -18,9 +21,6 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 
 const app = express();
-const dotenv = require("dotenv");
-
-dotenv.config();
 
 const accessLogStram = fs.createWriteStream(
   path.join(__dirname, "access.log"),
@@ -50,12 +50,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "js")));
+
 // app.use(express.static(path.join(__dirname, "views")));
 app.use(userRoutes);
 app.use(expenseRoutes);
 app.use(paymentRoutes);
 app.use(helmet());
 app.use(morgan("combined", { stream: accessLogStram }));
+
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, `public/${req.url}`));
+});
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, `public/${req.url}`));
+});
 
 User.hasMany(Expense);
 Expense.belongsTo(User);

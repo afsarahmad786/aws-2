@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
 
   axios
-    .get("http://127.0.0.1:3000/report", {
+    .get("http://localhost:3000/report", {
       headers: { Authorization: token },
     })
     .then((res) =>

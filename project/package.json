@@ -9,10 +9,6 @@
     "start-server": "node app.js",
     "start:dev": "nodemon app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": " https://github.com/afsarahmad786/aws-2.git"
-  },
   "author": "Afsar Ahmad",
   "license": "ISC",
   "dependencies": {
