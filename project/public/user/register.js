@@ -8,7 +8,7 @@ reg.addEventListener("click", function () {
   const password = document.getElementById("password").value;
   const name = document.getElementById("name").value;
   axios
-    .post("http://52.193.197.158:3000/register", {
+    .post("http://localhost:3000/register", {
       email: email,
       password: password,
       name: name,

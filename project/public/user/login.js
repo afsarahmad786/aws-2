@@ -8,11 +8,12 @@ btn.addEventListener("click", function () {
   const mess = document.getElementById("msg");
 
   axios
-    .post("http://52.193.197.158:3000/login", {
+    .post("http://localhost:3000/login", {
       email: email,
       password: password,
     })
     .then((response) => {
+      // alert("ccccccccccccccccccccc");
       const messages = response.data["message"];
       const suc = response.data["success"];
       if (suc == true) {
