@@ -8,7 +8,7 @@ btn.addEventListener("click", function () {
   const mess = document.getElementById("msg");
 
   axios
-    .post("http://localhost:3000/login", {
+    .post("http://43.207.26.174:3000/login", {
       email: email,
       password: password,
     })

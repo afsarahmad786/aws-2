@@ -59,7 +59,7 @@ const password=document.getElementById("pass").value
 const url=window.location.href.split("/")
 
   axios
-    .post("http://localhost:3000/password/reset/"+url[url.length - 1], {
+    .post("http://43.207.26.174:3000/password/reset/"+url[url.length - 1], {
       password: password,
     })
     .then((response) => {

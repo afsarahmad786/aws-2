@@ -5,7 +5,7 @@ btn.addEventListener("click", function () {
   const email = document.getElementById("email").value;
 
   axios
-    .post("http://localhost:3000/password/forgotpassword", {
+    .post("http://43.207.26.174:3000/password/forgotpassword", {
       email: email,
     })
     .then((response) => {
